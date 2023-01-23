@@ -6,35 +6,61 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { AuthContext } from "../App";
 import Header from "./header";
-
+let text = "";
 const Login = () => {
   const navigate = useNavigate();
   const { setCurrentUser } = useContext(AuthContext);
-
+  const [user2, setUser] = useState();
+  const [password2, setPassword] = useState();
   const handleLogin = async () => {
     try {
       const response = await axios.post("http://localhost:9000/auth/login", {
-        email: "shjfbvh@gmail.com",
-        password: "9009",
+        email: user2,
+        password: password2,
       });
       setCurrentUser(response.data.email);
-
       navigate("/");
+      console.log(response.data.email);
     } catch (error) {
       console.error(error);
     }
   };
+  const onchange = (el) => {
+    text = el.target.value;
+    function reverse(str) {
+      str.split("").reverse().join("");
+      return str;
+    }
+    setUser(reverse(text));
+  };
+  const onchange2 = (el) => {
+    text = el.target.value;
+    function reverse(str) {
+      str.split("").reverse().join("");
+      return str;
+    }
+    setPassword(reverse(text));
+  };
+
   return (
     <div>
-      <Header />
+      <Header></Header>
+      <link
+        href="https://fonts.googleapis.com/css?family=Ubuntu"
+        rel="stylesheet"
+      ></link>
       <p className="topLoginText">Нэвтрэх</p>
       <div>
         <p className="emailP">Цахим хаяг</p>
-        <input placeholder="name@mail.domain" className="emailInput"></input>
+        <input
+          placeholder="name@mail.domain"
+          className="emailInput"
+          onChange={onchange}
+        ></input>
       </div>
       <div>
         <p className="passP">Нууц үг</p>
-        <input type="password" className="passInput" />
+        <input type="password" className="passInput" onChange={onchange2} />
       </div>
       <div>
         <input type="checkbox" className="rememberCheck" />
