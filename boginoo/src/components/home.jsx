@@ -1,6 +1,5 @@
 import logo from "../assets/logo-default.png";
 import "../styles/App.css";
-import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import { AuthContext } from "../App";
 import Header from "./header";
@@ -24,25 +23,13 @@ const Home = () => {
   return (
     <div>
       <Header />
-      {/* <link
-        href="https://fonts.googleapis.com/css?family=Ubuntu"
-        rel="stylesheet"
-      ></link>
-      <div className="topContainer">
-        <p className="herhen">Хэрхэн ажилладаг вэ?</p>
-        <Link to="/login">
-          <button className="loginButton">
-            <p className="loginButtonText">Нэвтрэх</p>
-          </button>
-        </Link> */}
-      {/* </div> */}
       <img className="logo" alt="logo" src={logo} />
       <div className="inputContainer">
         <input
           className="inputText"
           placeholder="https://www.web-huudas.mn"
         ></input>
-        <button className="shortenButton">
+        <button className="shortenButton" onClick={""}>
           <p className="shortenButtonText">Богиносгох</p>
         </button>
       </div>

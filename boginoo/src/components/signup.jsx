@@ -3,8 +3,7 @@ import "../styles/App.css";
 import logo from "../assets/logo2.png";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
-import { useState, useContext } from "react";
-import { AuthContext } from "../App";
+import { useState } from "react";
 
 const Signup = () => {
   const [email, setEmail] = useState();

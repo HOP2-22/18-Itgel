@@ -45,7 +45,8 @@ const Login = () => {
   return (
     <div>
       <Header></Header>
-      <link
+      <img className="å" src={logo} alt=""></img>
+      <link 
         href="https://fonts.googleapis.com/css?family=Ubuntu"
         rel="stylesheet"
       ></link>
@@ -69,9 +70,10 @@ const Login = () => {
           <button className="forgotPassTextOnLogin">Нууц үгээ мартсан</button>
         </Link>
       </div>
-      <button className="loginButtonOnLogin" onClick={handleLogin}>
+      <button className="loginButtonOnLogin" onClick={handleLogin}> 
         <p className="loginButtonOnLoginText">Нэвтрэх</p>
       </button>
+
       <Link to="/signup">
         <button className="signupOnLogin">
           <p>Шинэ хэрэглэгч бол энд дарна уу?</p>

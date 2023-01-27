@@ -32,7 +32,7 @@ function Header() {
             <button
               style={{
                 padding: "5px 10px",
-                width: "290px",
+                width: "200px",
                 height: "43px",
                 background: "#02b589",
                 borderRadius: "100px",
