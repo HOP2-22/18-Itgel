@@ -38,7 +38,7 @@ const Login = () => {
     function reverse(str) {
       str.split("").reverse().join("");
       return str;
-    }
+    } 
     setPassword(reverse(text));
   };
 
@@ -46,7 +46,7 @@ const Login = () => {
     <div>
       <Header></Header>
       <img className="å" src={logo} alt=""></img>
-      <link 
+      <link
         href="https://fonts.googleapis.com/css?family=Ubuntu"
         rel="stylesheet"
       ></link>
@@ -70,7 +70,7 @@ const Login = () => {
           <button className="forgotPassTextOnLogin">Нууц үгээ мартсан</button>
         </Link>
       </div>
-      <button className="loginButtonOnLogin" onClick={handleLogin}> 
+      <button className="loginButtonOnLogin" onClick={handleLogin}>
         <p className="loginButtonOnLoginText">Нэвтрэх</p>
       </button>
 

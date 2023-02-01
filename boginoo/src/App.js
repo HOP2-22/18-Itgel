@@ -5,6 +5,7 @@ import { useState, createContext } from "react";
 import Home from "./components/home";
 import Signup from "./components/signup";
 import Forgot from "./components/forgotpass";
+import Redirect from "./components/redirect";
 
 export const AuthContext = createContext();
 function AuthProvider(props) {
@@ -32,6 +33,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/forgotpass" element={<Forgot />} />
+          <Route path="/:short" element={<Redirect />} />
         </Routes>
       </AuthProvider>
     </BrowserRouter>
