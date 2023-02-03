@@ -11,7 +11,7 @@ const History = () => {
     const datas = async () => {
       if (!currentUser) return;
       try {
-        const { data } = await axios.post(`http://localhost:9000/URL/history`, {
+        const { data } = await axios.post(`http://localhost:9000/url/history`, {
           user: currentUser,
         });
         setUrls(data);
