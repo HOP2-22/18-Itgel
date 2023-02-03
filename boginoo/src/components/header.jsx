@@ -5,7 +5,6 @@ import "../styles/App.css";
 
 function Header() {
   const { currentUser } = useContext(AuthContext);
-  console.log(currentUser, "current user header");
   return (
     <div>
       <link
@@ -26,7 +25,22 @@ function Header() {
           Хэрхэн ажилладаг вэ?
         </p>
         {currentUser ? (
-          <p>{currentUser}</p>
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <Link to="/history">
+              <button
+                style={{
+                  padding: "5px 10px",
+                  width: "200px",
+                  background: "#02b589",
+                  borderRadius: "100px",
+                  border: "none",
+                }}
+              >
+                <p className="ehv">History</p>
+              </button>
+            </Link>
+            <p>{currentUser}</p>
+          </div>
         ) : (
           <Link to="/login">
             <button

@@ -5,8 +5,8 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useContext } from "react";
 import { AuthContext } from "../App";
-import Header from "./header";
 let text = "";
+
 const Login = () => {
   const navigate = useNavigate();
   const { setCurrentUser } = useContext(AuthContext);
@@ -38,13 +38,12 @@ const Login = () => {
     function reverse(str) {
       str.split("").reverse().join("");
       return str;
-    } 
+    }
     setPassword(reverse(text));
   };
 
   return (
     <div>
-      <Header></Header>
       <img className="å" src={logo} alt=""></img>
       <link
         href="https://fonts.googleapis.com/css?family=Ubuntu"
