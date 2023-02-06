@@ -5,30 +5,27 @@ import { AuthContext } from "../App";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [long, setLong] = useState();
-  const [short, setShort] = useState();
-  const [local, setLocal] = useState();
-  const [original, setOriginal] = useState();
-  const [res, setRes] = useState(false);
-  const { user } = useContext(AuthContext);
-  // const mongoose = require("mongoose");
-  // const Schema = mongoose.Schema;
-  // const navigator = useNavigate();
-  const createLink = async (event) => {
+  const [long, setLong] = useState("");
+  const [short, setShort] = useState("");
+  const [original, setOriginal] = useState("");
+  const { currentUser } = useContext(AuthContext);
+  const [loading, setLoading] = useState(false);
+
+  const createLink = async () => {
+    setLoading(true);
     try {
-      const data = await axios.post("http://localhost:9000/url/create", {
+      const { data } = await axios.post("http://localhost:9000/url/create", {
         long,
-        short,
-        user: user,
+        user: currentUser,
       });
-      setLocal(data.data);
-      console.log(data.data);
-      setOriginal(data.data.data.long);
-      setShort(data.data.data.short);
+      setOriginal(data.data.long);
+      setShort(data.data.short);
     } catch (error) {
       console.log(error);
     }
+    setLoading(false);
   };
+
   return (
     <div
       style={{
@@ -90,6 +87,7 @@ const Home = () => {
             }}
           />
           <button
+            disabled={loading}
             style={{
               backgroundColor: "#02B589",
               borderRadius: "50px",
@@ -101,17 +99,13 @@ const Home = () => {
               fontSize: "20px",
               fontWeight: "700",
             }}
-            onClick={() => {
-              createLink();
-              setShort(true);
-              setRes(true);
-            }}
+            onClick={createLink}
           >
             Богиносгох
           </button>
           <div
             style={{
-              display: res ? "block" : "none",
+              display: !loading ? "block" : "none",
             }}
           >
             <div>Өгөгдсөн холбоос:</div>
@@ -123,7 +117,7 @@ const Home = () => {
               }}
               style={{ cursor: "pointer" }}
             >
-              localhost:3000/{short}
+              localhost:9000/{short}
             </div>
           </div>
           <div

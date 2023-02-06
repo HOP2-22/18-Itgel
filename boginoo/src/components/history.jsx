@@ -2,6 +2,7 @@ import axios from "axios";
 import { useContext } from "react";
 import { useEffect, useState } from "react";
 import { AuthContext } from "../App";
+import "../styles/App.css";
 
 const History = () => {
   const [urls, setUrls] = useState([]);
@@ -40,6 +41,7 @@ const History = () => {
         }}
       >
         Boginoo
+        <h3 style={{ color: "#02B589" }}>history</h3>
       </div>
 
       <div
@@ -47,8 +49,9 @@ const History = () => {
           marginTop: "64px",
         }}
       >
+        <h3 style={{ color: "#02B589" }}>Long Short</h3>
         {urls?.map((url) => (
-          <div key={url._id}>
+          <div key={url._id} className="sbd">
             {url.long} {url.short}
           </div>
         ))}

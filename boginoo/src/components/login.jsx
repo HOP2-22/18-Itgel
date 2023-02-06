@@ -5,6 +5,7 @@ import { useNavigate, Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useContext } from "react";
 import { AuthContext } from "../App";
+import Header from "./header";
 let text = "";
 
 const Login = () => {
@@ -45,6 +46,7 @@ const Login = () => {
   return (
     <div>
       <img className="å" src={logo} alt=""></img>
+
       <link
         href="https://fonts.googleapis.com/css?family=Ubuntu"
         rel="stylesheet"
